@@ -215,11 +215,11 @@ module Amp_Panel(){
         union(){
             //BNC
             intersection(){
-            translate(BNC_Pos-[0,0,6]) cylinder(r=9.4/2,h=7);
+            translate(BNC_Pos-[0,0,6]) cylinder(r=9.6/2,h=7);
             translate(BNC_Pos-[0,0,6]) cube([10,8.3,20],center=true);
             }
             translate(BNC_Pos-[0,0,8]) cylinder(r=7.5,h=5);
-            translate([5,3,-1]) cube([29,51,3]);
+            translate([5,3,-1]) cube([29,51,4.6]);
         }
     }
 }
@@ -562,5 +562,9 @@ module RF_Unit(){
 }
 
 //translate([0,0,0]) RF_Unit();
+difference(){
+    Amp_Panel();
+    translate([-5,-20,-5]) cube([80,20,50]);
+}
 //Base();
 //rotate([180,0,0]) Case();
