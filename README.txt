@@ -18,6 +18,6 @@ Future:
 
 Current SCPI commands:
     "FREQ Num"
-        Set the frequency is Hz.
+        Set the frequency in Hz.
     "WAVE Num"
         Set the wave type. Encoded as 5 options off, sinewave, squarewave1,squarewave2,triangle wave; 1,2,3,4,5
