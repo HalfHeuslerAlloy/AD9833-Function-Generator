@@ -20,4 +20,5 @@ Current SCPI commands:
     "FREQ Num"
         Set the frequency in Hz.
     "WAVE Num"
-        Set the wave type. Encoded as 5 options off, sinewave, squarewave1,squarewave2,triangle wave; 1,2,3,4,5
+        Set the wave type. Encoded as a number between 1-5. Options are:
+            Off (1), Sinewave (2), Squarewave1 (3),Squarewave2 (4), Triangle wave (5)
