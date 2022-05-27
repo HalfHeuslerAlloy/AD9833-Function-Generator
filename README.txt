@@ -12,7 +12,7 @@ Features:
     * OpenSCAD design case
 
 Future:
-    * Amplifyier module
+    * Amplifier module
 
 
 
