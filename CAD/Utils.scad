@@ -1,4 +1,4 @@
-module ShieldedBox(Lx,Ly,Lz,Rad){
+module ShieldedBox(Lx,Ly,Lz,Rad,HoleRad=1.4,WallThk = 2){
     difference(){
         hull(){
             translate([   Rad,   Rad,0])
@@ -16,30 +16,29 @@ module ShieldedBox(Lx,Ly,Lz,Rad){
             translate([Lx-Rad,Ly-Rad,Lz - 1]) cylinder(r=Rad,h=1);
         }
         union(){
-            translate([   Rad/2,   Rad*2,Rad/2])
-                cube([Lx-Rad,Ly-Rad*4,Lz]);
-            translate([   Rad*2,   Rad/2,Rad/2])
-                cube([Lx-Rad*4,Ly-Rad,Lz]);
+            translate([WallThk,Rad+HoleRad*1.5,Rad/2])
+                cube([Lx-WallThk*2,Ly-Rad*2-HoleRad*3,Lz]);
+            translate([Rad+HoleRad*1.5,WallThk,Rad/2])
+                cube([Lx-Rad*2-HoleRad*3,Ly-WallThk*2,Lz]);
             
-            Hole = 1.4;
             translate([   Rad,   Rad,Lz/2])
-                cylinder(r=Hole,h=Lz);
+                cylinder(r=HoleRad,h=Lz);
             translate([Lx-Rad,   Rad,Lz/2])
-                cylinder(r=Hole,h=Lz);
+                cylinder(r=HoleRad,h=Lz);
             translate([   Rad,Ly-Rad,Lz/2])
-                cylinder(r=Hole,h=Lz);
+                cylinder(r=HoleRad,h=Lz);
             translate([Lx-Rad,Ly-Rad,Lz/2])
-                cylinder(r=Hole,h=Lz);
+                cylinder(r=HoleRad,h=Lz);
             
             translate([0,0,Lz])hull(){
             translate([   Rad,   Rad,-Rad/2])
-                cylinder(r=Rad/2,h=Rad*1.1);
+                cylinder(r=Rad-WallThk,h=Rad*1.1);
             translate([Lx-Rad,   Rad,-Rad/2])
-                 cylinder(r=Rad/2,h=Rad*1.1);
+                 cylinder(r=Rad-WallThk,h=Rad*1.1);
             translate([   Rad,Ly-Rad,-Rad/2])
-                cylinder(r=Rad/2,h=Rad*1.1);
+                cylinder(r=Rad-WallThk,h=Rad*1.1);
             translate([Lx-Rad,Ly-Rad,-Rad/2])
-                cylinder(r=Rad/2,h=Rad*1.1);
+                cylinder(r=Rad-WallThk,h=Rad*1.1);
             }
             
         }
