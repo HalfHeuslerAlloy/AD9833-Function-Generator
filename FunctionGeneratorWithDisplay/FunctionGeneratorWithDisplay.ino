@@ -24,10 +24,10 @@ String rangeStr = "Hz ";
 
 byte cursorPos = 6;
 
-const int B_Up = A0;
-const int B_Down = A1;
-const int B_Left = A2;
-const int B_Right = A3;
+const int B_Up = A1;
+const int B_Down = A0;
+const int B_Left = A3;
+const int B_Right = A2;
 const int B_Run = A4;
 
 int BS_Up = LOW;
