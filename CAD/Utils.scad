@@ -45,7 +45,7 @@ module ShieldedBox(Lx,Ly,Lz,Rad,HoleRad=1.4,WallThk = 2){
     }
 }
 
-module ShieldedLid(Lx,Ly,Rad){
+module ShieldedLid(Lx,Ly,Rad,HoleRad=1.4,WallThk = 2){
     difference(){
     union(){
         hull(){
@@ -64,22 +64,22 @@ module ShieldedLid(Lx,Ly,Rad){
             translate([Lx-Rad,Ly-Rad,0]) cylinder(r=Rad,h=1);
         }
         hull(){
-            translate([   Rad,   Rad,-Rad/2]) cylinder(r=Rad/2.2,h=Rad);
-            translate([Lx-Rad,   Rad,-Rad/2]) cylinder(r=Rad/2.2,h=Rad);
-            translate([   Rad,Ly-Rad,-Rad/2]) cylinder(r=Rad/2.2,h=Rad);
-            translate([Lx-Rad,Ly-Rad,-Rad/2]) cylinder(r=Rad/2.2,h=Rad);
+            translate([   Rad,   Rad,-Rad/2]) cylinder(r=Rad-WallThk-0.5,h=Rad);
+            translate([Lx-Rad,   Rad,-Rad/2]) cylinder(r=Rad-WallThk-0.5,h=Rad);
+            translate([   Rad,Ly-Rad,-Rad/2]) cylinder(r=Rad-WallThk-0.5,h=Rad);
+            translate([Lx-Rad,Ly-Rad,-Rad/2]) cylinder(r=Rad-WallThk-0.5,h=Rad);
         }
      
     }
-        Hole = 1.5;
+        
         translate([   Rad,   Rad,-Rad])
-            cylinder(r=Hole,h=50);
+            cylinder(r=HoleRad,h=50);
         translate([Lx-Rad,   Rad,-Rad])
-            cylinder(r=Hole,h=50);
+            cylinder(r=HoleRad,h=50);
         translate([   Rad,Ly-Rad,-Rad])
-            cylinder(r=Hole,h=50);
+            cylinder(r=HoleRad,h=50);
         translate([Lx-Rad,Ly-Rad,-Rad])
-            cylinder(r=Hole,h=50);
+            cylinder(r=HoleRad,h=50);
     }
 }
 
